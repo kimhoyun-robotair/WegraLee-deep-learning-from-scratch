@@ -1,6 +1,8 @@
 # coding: utf-8
 import sys, os
-sys.path.append(os.pardir)  # 부모 디렉터리의 파일을 가져올 수 있도록 설정
+current_dir = os.path.dirname(os.path.abspath(__file__))
+root_dir = os.path.abspath(os.path.join(current_dir, '..'))
+sys.path.append(root_dir)
 import numpy as np
 import pickle
 from dataset.mnist import load_mnist
@@ -13,7 +15,7 @@ def get_data():
 
 
 def init_network():
-    with open("sample_weight.pkl", 'rb') as f:
+    with open("/home/kimhoyun/CS_Study/WegraLee-deep-learning-from-scratch/ch03/sample_weight.pkl", 'rb') as f:
         network = pickle.load(f)
     return network
 
